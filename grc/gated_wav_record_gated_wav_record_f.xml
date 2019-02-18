@@ -1,38 +1,40 @@
 <?xml version="1.0"?>
 <block>
-  <name>gated_wav_record_f</name>
-  <key>gated_wav_record_gated_wav_record_f</key>
-  <category>[gated_wav_record]</category>
+  <name>Gated Wav Record</name>
+  <key>gated_wav_record_f</key>
+  <category>[Core]/Audio</category>
   <import>import gated_wav_record</import>
-  <make>gated_wav_record.gated_wav_record_f($base_filename, $n_channels, $sample_rate, $bits_per_sample)</make>
-  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
-       Sub-nodes:
-       * name
-       * key (makes the value accessible as $keyname, e.g. in the make node)
-       * type -->
+  <make>gated_wav_record.gated_wav_record_f($base_filename, $n_channels, $sample_rate, $bits_per_channel)</make>
+
   <param>
-    <name>...</name>
-    <key>...</key>
-    <type>...</type>
+    <name>Base File Name</name>
+    <key>base_filename</key>
+    <type>string</type>
+  </param>
+  
+  <param>
+    <name>Number Channels</name>
+    <key>n_channels</key>
+    <value>1</value>
+    <type>int</type>
   </param>
 
-  <!-- Make one 'sink' node per input. Sub-nodes:
-       * name (an identifier for the GUI)
-       * type
-       * vlen
-       * optional (set to 1 for optional inputs) -->
+  <param>
+    <name>Sample Rate</name>
+    <key>sample_rate</key>
+    <value>samp_rate</value>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Bytes per Channel</name>
+    <key>bits_per_channel</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
+
   <sink>
     <name>in</name>
-    <type><!-- e.g. int, float, complex, byte, short, xxx_vector, ...--></type>
+    <type>float</type>
   </sink>
-
-  <!-- Make one 'source' node per output. Sub-nodes:
-       * name (an identifier for the GUI)
-       * type
-       * vlen
-       * optional (set to 1 for optional inputs) -->
-  <source>
-    <name>out</name>
-    <type><!-- e.g. int, float, complex, byte, short, xxx_vector, ...--></type>
-  </source>
 </block>

@@ -11,7 +11,7 @@ In the project's directory do the following.
 ```
 mkdir build
 cd build
-cmake ../
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 make
 sudo make install
 sudo cp ../gated_wav_record_f.xml /usr/share/gnuradio/grc/blocks/
