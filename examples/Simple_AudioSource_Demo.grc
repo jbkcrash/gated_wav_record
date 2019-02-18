@@ -116,7 +116,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>-55</value>
+      <value>-38</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -219,7 +219,7 @@
     </param>
     <param>
       <key>ramp</key>
-      <value>0</value>
+      <value>1800</value>
     </param>
     <param>
       <key>threshold</key>
@@ -250,7 +250,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -360,7 +360,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(848, 68)</value>
+      <value>(720, 36)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -427,7 +427,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(416, 556)</value>
+      <value>(392, 444)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -455,15 +455,15 @@
     </param>
     <param>
       <key>color1</key>
-      <value>"blue"</value>
+      <value>"yellow"</value>
     </param>
     <param>
       <key>label1</key>
-      <value></value>
+      <value>Before Squelch</value>
     </param>
     <param>
       <key>width1</key>
-      <value>1</value>
+      <value>3</value>
     </param>
     <param>
       <key>alpha10</key>
@@ -487,11 +487,11 @@
     </param>
     <param>
       <key>color2</key>
-      <value>"red"</value>
+      <value>"green"</value>
     </param>
     <param>
       <key>label2</key>
-      <value></value>
+      <value>After Squelch</value>
     </param>
     <param>
       <key>width2</key>
