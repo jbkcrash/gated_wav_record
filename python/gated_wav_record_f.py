@@ -22,6 +22,7 @@
 import numpy
 import wave
 import datetime
+import struct
 
 from gnuradio import gr
 
@@ -44,19 +45,21 @@ class gated_wav_record_f(gr.sync_block):
         in0 = input_items[0]
         # Recording Gate State Machine
         if any(in0) and not self.bRecordToggle: # We need to open file and start recording
+            print "Opening File\r\n"
             filename = self.base_filename + "-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + ".wav"
             self.waveFile = wave.open(filename, "wb")
             self.waveFile.setnchannels(self.n_channels)
             self.waveFile.setframerate(self.sample_rate)
-            self.waveFile.setsampwidth(self.bits_per_sample)
-            #waveFile.writeframes(b''.join(in0)) # File is open, now write these frames
-            self.waveFile.writeframes(in0)
+            self.waveFile.setsampwidth(self.bits_per_sample) # Based on how I am generating audio this is 2 for now
+            audio_frames = numpy.int16(in0/numpy.max(numpy.abs(in0)) * self.sample_rate)
+            self.waveFile.writeframes(audio_frames)
             self.bRecordToggle = True # We are now recording
         elif not any(in0) and self.bRecordToggle: # We detect an idle state and need to stop recording
-            waveFile.close();
+            print "Closing File\r\n"
+            self.waveFile.close();
             self.bRecordToggle = False # We are not recording
         elif any(in0) and self.bRecordToggle: # We need to just record these frames, file should be open
-            #waveFile.writeframes(b''.join(in0))
-            self.waveFile.writeframes(in0)
+            audio_frames = numpy.int16(in0/numpy.max(numpy.abs(in0)) * self.sample_rate)
+            self.waveFile.writeframes(audio_frames)            
         return len(input_items[0])
 
