@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<block>
+  <name>Gated Wav Record</name>
+  <key>gated_wav_record_f</key>
+  <category>[Core]/Audio</category>
+  <import>import gated_wav_record</import>
+  <make>gated_wav_record.gated_wav_record_f($base_filename, $n_channels, $sample_rate, $bits_per_channel)</make>
+
+  <param>
+    <name>Base File Name</name>
+    <key>base_filename</key>
+    <type>string</type>
+  </param>
+  
+  <param>
+    <name>Number Channels</name>
+    <key>n_channels</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Sample Rate</name>
+    <key>sample_rate</key>
+    <value>samp_rate</value>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Bytes per Channel</name>
+    <key>bits_per_channel</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+</block>

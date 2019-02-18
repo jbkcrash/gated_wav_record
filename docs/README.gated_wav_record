@@ -1,0 +1,11 @@
+This is the gated_wav_record-write-a-block package meant as a guide to building
+out-of-tree packages. To use the gated_wav_record blocks, the Python namespaces
+is in 'gated_wav_record', which is imported as:
+
+    import gated_wav_record
+
+See the Doxygen documentation for details about the blocks available
+in this package. A quick listing of the details can be found in Python
+after importing by using:
+
+    help(gated_wav_record)
