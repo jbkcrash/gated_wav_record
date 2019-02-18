@@ -14,7 +14,7 @@ cd build
 cmake ../
 make
 sudo make install
-cp ../gate_wav_record_f.xml /usr/share/gnuradio/grc/blocks/
+sudo cp ../gated_wav_record_f.xml /usr/share/gnuradio/grc/blocks/
 ```
 
 Restart GNU Radio Companion and you should have an "audio" block called Gated Wav Record.
