@@ -4,7 +4,7 @@
   <key>gated_wav_record_f</key>
   <category>[Core]/Audio</category>
   <import>import gated_wav_record</import>
-  <make>gated_wav_record.gated_wav_record_f($base_filename, $n_channels, $sample_rate, $bits_per_channel)</make>
+  <make>gated_wav_record.gated_wav_record_f($base_filename, $n_channels, $sample_rate, $bytes_per_channel)</make>
 
   <param>
     <name>Base File Name</name>
@@ -28,8 +28,8 @@
 
   <param>
     <name>Bytes per Channel</name>
-    <key>bits_per_channel</key>
-    <value>1</value>
+    <key>bytes_per_channel</key>
+    <value>2</value>
     <type>int</type>
   </param>
 

@@ -30,12 +30,12 @@ class gated_wav_record_f(gr.sync_block):
     """
     docstring for block gated_wav_record_f
     """
-    def __init__(self, base_filename, n_channels, sample_rate, bits_per_sample):
+    def __init__(self, base_filename, n_channels, sample_rate, bytes_per_sample):
         self.bRecordToggle = False # We start not recording
         self.base_filename = base_filename # This string is used with date_time to generate filename.
         self.n_channels = n_channels = 1 # TODO; fix, only one channel for now.
         self.sample_rate = sample_rate # Sample rate for recording.
-        self.bits_per_sample = bits_per_sample # Sample size.
+        self.bytes_per_sample = bytes_per_sample # Sample size.
         gr.sync_block.__init__(self,
             name="gated_wav_record_f",
             in_sig=[numpy.float32],
@@ -50,7 +50,7 @@ class gated_wav_record_f(gr.sync_block):
             self.waveFile = wave.open(filename, "wb")
             self.waveFile.setnchannels(self.n_channels)
             self.waveFile.setframerate(self.sample_rate)
-            self.waveFile.setsampwidth(self.bits_per_sample) # Based on how I am generating audio this is 2 for now
+            self.waveFile.setsampwidth(self.bytes_per_sample) # Based on how I am generating audio this is 2 for now
             audio_frames = numpy.int16(in0/numpy.max(numpy.abs(in0)) * self.sample_rate)
             self.waveFile.writeframes(audio_frames)
             self.bRecordToggle = True # We are now recording

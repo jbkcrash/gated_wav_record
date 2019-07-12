@@ -343,7 +343,7 @@
       <value></value>
     </param>
     <param>
-      <key>bits_per_channel</key>
+      <key>bytes_per_channel</key>
       <value>2</value>
     </param>
     <param>
